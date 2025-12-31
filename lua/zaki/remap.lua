@@ -18,13 +18,6 @@ map({ "n", "v" }, "gg", "gg0", opts)
 map({ "n", "v" }, "G", "G$", opts)
 
 -- 3. Plugin Keymaps (Safe versions)
--- NvimTree
-map("n", "<leader>pv", "<cmd>NvimTreeToggle<CR>", { desc = "Explorer" })
-
--- Telescope (Using commands to prevent startup errors)
-map("n", "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Search in Buffer" })
-map("n", "<leader>ps", "<cmd>Telescope live_grep<CR>", { desc = "Search Project" })
-
 -- LSP (Basic mappings)
 map("n", "<", vim.lsp.buf.hover, { desc = "Hover Documentation" })
 map("n", "<leader>fa", vim.lsp.buf.code_action, { desc = "Code Action" })
