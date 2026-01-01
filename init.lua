@@ -11,6 +11,13 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+vim.diagnostic.config({
+  virtual_text = false,
+  float = false,      
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})
 
 -- core
 require("zaki.set")
@@ -18,4 +25,11 @@ require("zaki.remap")
 
 -- plugins
 require("lazy").setup("zaki.plugins")
+-- Remove borders from all LSP floating windows
+vim.lsp.handlers["textDocument/hover"] =
+  vim.lsp.with(vim.lsp.handlers.hover, { border = "none" })
+
+vim.lsp.handlers["textDocument/signatureHelp"] =
+  vim.lsp.with(vim.lsp.handlers.signature_help, { border = "none" })
+
 

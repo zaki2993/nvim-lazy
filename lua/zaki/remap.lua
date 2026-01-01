@@ -21,6 +21,8 @@ map({ "n", "v" }, "G", "G$", opts)
 -- LSP (Basic mappings)
 map("n", "<", vim.lsp.buf.hover, { desc = "Hover Documentation" })
 map("n", "<leader>fa", vim.lsp.buf.code_action, { desc = "Code Action" })
+vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover)
+
 
 -- 4. Custom Functions
 
@@ -79,3 +81,9 @@ vim.api.nvim_create_autocmd("WinEnter", {
         end
     end
 })
+vim.keymap.set("n", "<leader>xs", function()
+  vim.diagnostic.open_float(nil, {
+    focusable = true,
+  })
+end, { desc = "Show diagnostics popup" })
+
